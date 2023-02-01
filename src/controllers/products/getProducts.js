@@ -1,8 +1,7 @@
 const connection = require("../../../database");
 
 module.exports = (req, res) => {
-  const sqlQuery = "SELECT * from users";
-
+  const sqlQuery = "SELECT * from products";
   connection
     .promise()
     .query(sqlQuery)
