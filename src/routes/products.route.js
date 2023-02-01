@@ -1,7 +1,17 @@
 const Router = require("express").Router();
 
-const { getProducts } = require("../controllers/products");
+const {
+  getAllProducts,
+  getProduct,
+  getAllProductsAsc,
+  getAllProductsDesc,
+  postProduct,
+} = require("../controllers/products");
 
-Router.get("/", getProducts);
+Router.get("/", getAllProducts);
+Router.get("/price-up", getAllProductsAsc);
+Router.get("/price-down", getAllProductsDesc);
+Router.get("/:id", getProduct);
+Router.post("/new-product", postProduct);
 
 module.exports = Router;

@@ -16,7 +16,7 @@ module.exports = (req, res) => {
       res.status(201).json(createCategory);
     })
     .catch((err) => {
-      console.error("Could not create category", err);
+      console.error("Failed to add category", err);
       res.status(500);
     });
 };

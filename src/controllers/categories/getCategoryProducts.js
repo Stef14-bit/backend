@@ -8,9 +8,8 @@ module.exports = (req, res) => {
     .query(sqlQuery, [req.params.id])
     .then(([result]) => {
       if (!result.length) {
-        res.status(404).send("No products found");
-      } else {
-        res.json(result);
+        return res.status(404).send("No products found");
       }
+      res.json(result);
     });
 };
