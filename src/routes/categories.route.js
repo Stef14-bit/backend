@@ -9,7 +9,7 @@ const {
 } = require("../controllers/categories");
 
 Router.get("/", getCategories);
-Router.post("/", postCategories);
+Router.post("/new-category", postCategories);
 Router.get("/:id/products", getCategoriesProducts);
 Router.put("/:id", putCategories);
 Router.delete("/:id", deleteCategories);

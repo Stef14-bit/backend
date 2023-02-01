@@ -7,13 +7,15 @@ const {
   getAllProductsDesc,
   postProduct,
   putProduct,
+  deleteProduct,
 } = require("../controllers/products");
 
 Router.get("/", getAllProducts);
 Router.get("/price-up", getAllProductsAsc);
 Router.get("/price-down", getAllProductsDesc);
 Router.get("/:id", getProduct);
-Router.post("/new-product", postProduct);
-Router.put("/update-product/:id/", putProduct);
+Router.post("/", postProduct);
+Router.put("/:id", putProduct);
+Router.delete("/:id", deleteProduct);
 
 module.exports = Router;
