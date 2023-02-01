@@ -11,7 +11,7 @@ module.exports = (req, res) => {
     .query(sqlQuery, values)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        return res.status(404).send("Category not found");
+        return res.status(404).send("Failed to update category");
       }
       res.send({ message: "Category updated successfuly" });
     })
