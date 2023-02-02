@@ -16,9 +16,9 @@ connection
 const app = express();
 app.use(express.json());
 
-app.use("/users", usersRoute);
-app.use("/products", productsRoute);
-app.use("/categories", categoriesRoute);
-app.use("/orders", ordersRoute);
+app.use("/api/users", usersRoute);
+app.use("/api/products", productsRoute);
+app.use("/api/categories", categoriesRoute);
+app.use("/api/orders", ordersRoute);
 
 module.exports = app;
