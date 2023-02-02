@@ -1,7 +1,12 @@
 require("dotenv").config();
 const express = require("express");
 const connection = require("../database");
-const { usersRoute, productsRoute, categoriesRoute } = require("./routes");
+const {
+  usersRoute,
+  productsRoute,
+  categoriesRoute,
+  ordersRoute,
+} = require("./routes");
 
 connection
   .promise()
@@ -14,5 +19,6 @@ app.use(express.json());
 app.use("/users", usersRoute);
 app.use("/products", productsRoute);
 app.use("/categories", categoriesRoute);
+app.use("/orders", ordersRoute);
 
 module.exports = app;

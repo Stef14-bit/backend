@@ -30,7 +30,7 @@ module.exports = (req, res) => {
     .query(sqlQuery, values)
     .then(([result]) => {
       if (result.affectedRows === 0) {
-        return res.status(404).send("Failed to update product");
+        return res.status(400).send("Failed to update product");
       }
       res.send({ message: "Product updated successfuly" });
     })
