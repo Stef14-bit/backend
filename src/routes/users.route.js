@@ -1,5 +1,6 @@
 const Router = require("express").Router();
 
+const { validateUser } = require("../../validators/userValidator");
 const {
   getAllUsers,
   getUser,
@@ -10,8 +11,8 @@ const {
 
 Router.get("/", getAllUsers);
 Router.get("/:id", getUser);
-Router.post("/", postUser);
-Router.put("/:id", putUser);
+Router.post("/", validateUser, postUser);
+Router.put("/:id", validateUser, putUser);
 Router.delete("/:id", deleteUser);
 
 module.exports = Router;
