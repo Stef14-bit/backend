@@ -1,5 +1,5 @@
 const request = require("supertest");
-const app = require("../../app");
+const app = require("../src/app");
 
 describe("User Routes", () => {
   describe("POST /users", () => {
@@ -50,12 +50,9 @@ describe("User Routes", () => {
       expect(response.body.validationErrors[3].param).toBe("image");
       expect(response.body.validationErrors[3].msg).toBe("Invalid value");
       expect(response.body.validationErrors[4].param).toBe("full_name");
-      expect(response.body.validationErrors[4].msg).toBe(
-        "Invalid value"
-      );
+      expect(response.body.validationErrors[4].msg).toBe("Invalid value");
       expect(response.body.validationErrors[5].param).toBe("username");
-      expect(response.body.validationErrors[5].msg).toBe(
-        "Invalid value"
-      );
+      expect(response.body.validationErrors[5].msg).toBe("Invalid value");
     });
   });
+});
