@@ -10,11 +10,10 @@ const validateUser = [
     .withMessage("Password is required")
     .isLength({ min: 8 })
     .withMessage("Password must be at least 8 characters long")
-    .minUppercase({ min: 1 })
+    .isUppercase({ min: 1 })
     .withMessage(passwordMessage)
-    .minNumbers({ min: 1 })
+    .isNumeric({ min: 1 })
     .withMessage(passwordMessage)
-    .minSymbols({ min: 1 })
     .withMessage(passwordMessage),
   body("role_id").isLength(),
   body("image").isString(),
