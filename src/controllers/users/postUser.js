@@ -6,7 +6,7 @@ module.exports = (req, res) => {
   const {
     email,
     password,
-    role_id,
+    role_id = 1,
     image = "",
     full_name,
     username,
