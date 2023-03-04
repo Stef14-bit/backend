@@ -1,6 +1,6 @@
 const { body, validationResult } = require("express-validator");
 
-const validateProduct = [
+const validateOrder = [
   body("customer_id").isLength(),
   body("product_id").isLength(),
   body("quantity").isLength().withMessage("Order cannot be empty"),
@@ -13,4 +13,4 @@ const validateProduct = [
   },
 ];
 
-module.exports = { validateProduct };
+module.exports = { validateOrder };
