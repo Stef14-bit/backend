@@ -1,4 +1,5 @@
 const Router = require("express").Router();
+const validateCategory = require("../../validators/categoryValidator");
 
 const {
   getCategories,
@@ -9,9 +10,9 @@ const {
 } = require("../controllers/categories");
 
 Router.get("/", getCategories);
-Router.post("/", postCategories);
+Router.post("/", validateCategory, postCategories);
 Router.get("/:id/products", getCategoriesProducts);
-Router.put("/:id", putCategories);
+Router.put("/:id", validateCategory, putCategories);
 Router.delete("/:id", deleteCategories);
 
 module.exports = Router;
