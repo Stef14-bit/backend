@@ -2,7 +2,6 @@ const { body, validationResult } = require("express-validator");
 
 const validateCategory = [
   body("name").isLength().withMessage("Please provide a category name"),
-  ,
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
