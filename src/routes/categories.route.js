@@ -1,5 +1,5 @@
 const Router = require("express").Router();
-const validateCategory = require("../../validators/categoryValidator");
+const { validateCategory } = require("../../validators/categoryValidator");
 
 const {
   getCategories,
