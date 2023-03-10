@@ -1,5 +1,5 @@
 const Router = require("express").Router();
-const validateOrder = require("../../validators/orderValidator");
+const { validateOrder } = require("../../validators/orderValidator");
 
 const {
   getAllOrders,
