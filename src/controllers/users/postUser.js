@@ -2,10 +2,10 @@ const connection = require("../../../database");
 
 module.exports = (req, res) => {
   const sqlQuery =
-    "INSERT INTO users (email,password,role_id,image,full_name,username) VALUES (?,?,?,?,?,?)";
+    "INSERT INTO users (email,hashed_password,role_id,image,full_name,username) VALUES (?,?,?,?,?,?)";
   const {
     email,
-    password,
+    hashed_password,
     role_id = 1,
     image = "",
     full_name,
@@ -14,12 +14,19 @@ module.exports = (req, res) => {
 
   connection
     .promise()
-    .query(sqlQuery, [email, password, role_id, image, full_name, username])
+    .query(sqlQuery, [
+      email,
+      hashed_password,
+      role_id,
+      image,
+      full_name,
+      username,
+    ])
     .then(([result]) => {
       const createUser = {
         id: result.insertId,
         email,
-        password,
+        hashed_password,
         role_id,
         image,
         full_name,

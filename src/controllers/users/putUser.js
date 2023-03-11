@@ -4,16 +4,24 @@ const connection = require("../../../database");
 module.exports = (req, res) => {
   const id = req.params.id;
   const sqlQuery =
-    "UPDATE users SET email=?,password=?,role_id=?,image=?,full_name=?,username=? WHERE id=?";
+    "UPDATE users SET email=?,hashed_password=?,role_id=?,image=?,full_name=?,username=? WHERE id=?";
   const {
     email,
-    password,
+    hashed_password,
     role_id,
     image = "",
     full_name,
     username,
   } = req.body;
-  const values = [email, password, role_id, image, full_name, username, id];
+  const values = [
+    email,
+    hashed_password,
+    role_id,
+    image,
+    full_name,
+    username,
+    id,
+  ];
 
   connection
     .promise()
