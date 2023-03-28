@@ -10,7 +10,7 @@ const {
 
 connection
   .promise()
-  .query("USE groceries_delivery")
+  .query("USE sql7604808")
   .catch((err) => console.error(err));
 
 const app = express();
