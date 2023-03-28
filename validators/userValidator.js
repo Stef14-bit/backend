@@ -1,16 +1,12 @@
 const { body, validationResult } = require("express-validator");
 
 const validateUser = [
-  body("email").isEmail().withMessage("Please provide a vallid email adress"),
+  body("email").isEmail().withMessage("Please provide a valid email address"),
   body("password")
-    .isStrongPassword()
+    .isStrongPassword({ minLength: 8 })
     .withMessage(
       "Password must contain at least one uppercase letter, one lowercase letter, one number, and one symbol"
-    )
-    .isLength({ min: 8 })
-    .withMessage("Password must be at least 8 characters long")
-    .matches(/[!@#$%^&*(),.?":{}|<>]/)
-    .withMessage("Password must contain at least one symbol"),
+    ),
   body("role_id").isLength(),
   body("full_name").isLength(),
   body("username").isLength({ min: 4, max: 30 }),

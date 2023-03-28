@@ -3,7 +3,7 @@ const connection = require("../../../database");
 module.exports = (req, res) => {
   const id = req.params.id;
   const sqlQuery =
-    "SELECT users.id, users.email, users.password, users.full_name, users.username,users.image, roles.name as role_name FROM users JOIN roles ON users.role_id = roles.id WHERE users.id=?";
+    "SELECT users.id, users.email, users.hashed_password, users.full_name, users.username,users.image, roles.name as role_name FROM users JOIN roles ON users.role_id = roles.id WHERE users.id=?";
   connection
     .promise()
     .query(sqlQuery, [id])

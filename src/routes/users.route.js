@@ -12,7 +12,7 @@ const {
 
 Router.get("/", getAllUsers);
 Router.get("/:id", getUser);
-Router.post("/", hashPassword, validateUser, postUser);
+Router.post("/", validateUser, hashPassword, postUser);
 Router.put("/:id", hashPassword, validateUser, putUser);
 Router.delete("/:id", deleteUser);
 
